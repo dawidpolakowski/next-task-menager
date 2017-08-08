@@ -1,0 +1,20 @@
+{
+  "name": "next task menager",
+  "version": "1.0.0",
+  "description": "Simple Angular PHP MySql task menager",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dawidpolakowski/next-task-menager.git"
+    },
+    "keywords": [
+        "angulatjs",
+        "tutorial",
+        "catalog"
+    ],
+    "author": "Dawid Polakowski <dawidpolakowski@gamil.com>",
+    "license": "MIT"
+}

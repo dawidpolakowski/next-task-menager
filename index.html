@@ -1,0 +1,75 @@
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="bower_components\bootstrap\dist\css\bootstrap.min.css">
+  <link rel="stylesheet" href="lib\app.css">
+</head>
+
+<body ng-app="NextkApp">
+  <!--
+    Your HTML content here
+  -->
+  <div class="container" ng-controller="NextkAppCtrl">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="sorting">
+          Sort by:<br>
+          <button type="button" ng-click="hideAddTask(false)" class="btn btn-primary">Add task</button>
+          <button type="button" ng-click="orderByMe('id')" class="btn btn-default">Id</button>
+          <button type="button" ng-click="orderByMe('created')" class="btn btn-default">Data</button>
+          <button type="button" ng-click="orderByMe('priority')" class="btn btn-default">Priority</button>
+        </div>
+        <div class="search">
+
+          Search:
+          <p><input type="text" ng-model="search"></p>
+        </div>
+        <div class="clear"></div>
+        <div class="list-group">
+
+
+          <a ng-repeat="x in task  | filter : search | orderBy: myOrderBy" href="#" class="list-group-item task-level-1">
+           
+            <b class="title">  {{ x.id  }}. {{x.title}}</b>     <span class="description">{{x.description}} </span>
+           <span class="created">Created: {{x.created}} </span>
+           <button type="button" ng-click="delete(x.id)" class="btn-xs btn-default remove">x</button>
+ <span class="priority"> {{ x.priority  }}</span>
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="col-sm-8">
+        <form novalidate name="addTaskForm" ng-hide="hideAdd">
+          <div class="form-group">
+            <label for="name">Title</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Task title" ng-model="taskTitle">
+          </div>
+          <div class="form-group">
+            <label for="email">Description</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Task description" ng-model="taskDescription">
+          </div>
+      
+          <div class="text-center">
+            <button data-loading-text="Saving User..." type="submit" class="btn btn-default">Add Task</button>
+            <button type="button" ng-click="hideAddTask(true)" class="btn btn-default">Cencel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="bower_components\angular\angular.min.js"></script>
+  <script src="lib\NextkApp.js"></script>
+
+</body>
+
+</html>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at https://material.angularjs.org/license.
+-->

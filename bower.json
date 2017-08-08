@@ -1,0 +1,21 @@
+{
+  "name": "next",
+  "description": "",
+  "main": "index.html",
+  "authors": [
+    "Dawid POLAKOWSKI <polakowd@essilor.eu>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.2.9",
+    "bootstrap": "^3.3.7"
+  }
+}
