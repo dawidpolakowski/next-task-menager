@@ -1,23 +1,27 @@
-<?php
-include "connectdb.php";
-$data=json_decode(file_get_contents("php://input"));
+<?php 
 
-$btnName=$dbhandle->real_escape_string($data->btnName);
-if($btnName=='Insert'){
+  header("Access-Control-Allow-Origin: *");
+    header("Content-Type: application/json; charset=UTF-8");
 
-$id=$dbhandle->real_escape_string($data->id);
-$name=$dbhandle->real_escape_string($data->title);
+   $mysqli = new mysqli("localhost", "root","","essilor"); 
 
-$query="INSERT INTO student VALUES($id,'".$title."')";
+$taskTitle = '';
+$taskDescription = '';
 
-$dbhandle->query($query);
-	}
+if(isset($_GET['taskTitle'])){
 
-	else {
+$taskTitle = $_GET['taskTitle'];
+$taskDescription = $_GET['taskDescription'];
 
-		$id=$dbhandle->real_escape_string($data->id);
-       $name=$dbhandle->real_escape_string($data->title);
-       	$query="UPDATE student SET studname = '".$title."' WHERE studid=$id ";
-       	$dbhandle->query($query);
-	}
+$created = date("Y/m/d");
+$priority = "4";
+
+
+$query="INSERT INTO task(title,description,created,priority)  VALUES ('$taskTitle', '$taskDescription', '$created', '$priority')";
+$result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+
+$result = $mysqli->affected_rows;
+
+echo $json_response = json_encode($result);
+}
 ?>

@@ -46,15 +46,15 @@
         <form novalidate name="addTaskForm" ng-hide="hideAdd">
           <div class="form-group">
             <label for="name">Title</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Task title" ng-model="taskTitle">
+            <input type="text" class="form-control" id="name" name="taskTitle" placeholder="Task title" ng-model="taskTitle">
           </div>
           <div class="form-group">
             <label for="email">Description</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Task description" ng-model="taskDescription">
+            <input type="text" class="form-control" id="email" name="taskDescription" placeholder="Task description" ng-model="taskDescription">
           </div>
       
           <div class="text-center">
-            <button data-loading-text="Saving User..." type="submit" class="btn btn-default">Add Task</button>
+            <button data-loading-text="Saving User..." ng-click="insert(taskTitle,taskDescription)" type="submit" class="btn btn-default">Add Task</button>
             <button type="button" ng-click="hideAddTask(true)" class="btn btn-default">Cencel</button>
           </div>
         </form>
